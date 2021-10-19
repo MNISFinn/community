@@ -3,6 +3,7 @@
 const app = getApp()
 
 import request from '../../utils/network'
+import { loginRequest } from '../../utils/util'
 
 Page({
   data: {
@@ -61,16 +62,16 @@ Page({
           name: user_info['nickName'],
         }
       }).then(res => {
-        console.log(res)
         user = {
           avatarUrl: user_info['avatarUrl'],
-          nickName: res.data.data.user_name
+          nickName: res.data.user_name
         }
         this.setData({
           userInfo: user,
           hasUserInfo: true
         })
-        wx.setStorageSync('token', res.data.data.token)
+        wx.setStorageSync('token', res.data.token) // 存储token
+        wx.setStorageSync('expireTime', new Date().getTime() + res.data.expires_in * 1000)
       }).catch(err => {
         console.log(err)
       })
@@ -89,11 +90,6 @@ Page({
     // })
   },
   test() {
-    request({
-      url: 'user_info',
-      'method': 'POST',
-    }).then(res => {
-      console.log(res.data)
-    })
-  }
+    console.log('test')
+  },
 })

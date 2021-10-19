@@ -21,6 +21,14 @@
     </block>
     <!-- <button bindtap="test">test</button> -->
   </view>
+  <view class="profile-list">
+    <navigator url="../settings/settings">
+    <div class="profile-list-item">设置</div>
+    </navigator>
+    <div class="profile-list-item">反馈</div>
+  </view>
+
+  <!-- 待定新建订单页 -->
   <view id="order-title">
   <text class="my-order">我的订单</text>
   <text class="order-list">全部订单 ></text>

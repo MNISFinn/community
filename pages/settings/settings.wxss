@@ -1,0 +1,12 @@
+/* pages/settings/settings.wxss */
+.settings-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-items {
+  font-size: 14px;
+  margin-top: 20rpx;
+  padding: 10rpx;
+}
