@@ -11,7 +11,8 @@
       <open-data type="userNickName"></open-data>
     </block>
     <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile" size="mini">登录</button>
+      <image src="../../assets/avatar.png" class="userinfo-avatar" />
+      <text wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile" size="mini">点击获取头像</text>
       <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
       <view wx:else> 请使用1.4.4及以上版本基础库 </view>
     </block>

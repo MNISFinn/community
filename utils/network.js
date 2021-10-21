@@ -1,5 +1,6 @@
-import config from './config';
-import msg from './message';
+import config from './config'
+import msg from './message'
+import util from './util'
 
 /**
  * 验证是否需要token
@@ -11,7 +12,7 @@ function checkPath(path) {
 }
 
 async function getToken() {
-  const currentTime = parseInt(new Date().getTime() / 1000)
+  const currentTime = new Date().getTime()
   const expireTime = wx.getStorageSync('expireTime')
   if (currentTime < expireTime) {
     return wx.getStorageSync('token')
@@ -25,46 +26,7 @@ async function getToken() {
 }
 
 function getTokenByServer() {
-  let p1 = new Promise((resolve, reject) => {
-    wx.login({
-      success: res => {
-        // 这里也可以选择性返回需要的字段
-        resolve(res)
-      }
-    })
-  })
-
-  let p2 = new Promise((resolve, reject) => {
-    wx.getUserProfile({
-      desc: '用于完善会员资料',
-      success: res => {
-        // 这里也可以选择性返回需要的字段
-        resolve(res)
-      }
-    })
-  })
-  // 同时执行p1和p2，并在它们都完成后执行then
-  Promise.all([p1, p2]).then((results) => {
-    wx.removeStorageSync('token')
-    // results是一个长度为2的数组，放置着p1、p2的resolve
-    let code = results[0].code
-    let user_info = results[1].userInfo
-    // 登录
-    request({
-      url: 'user_login',
-      method: 'POST',
-      data: {
-        code,
-        name: user_info['nickName'],
-      }
-    }).then(res => {
-      console.log(res)
-      wx.setStorageSync('token', res.data.data.token) // 存储token
-      wx.setStorageSync('expireTime', new Date().getTime() + res.data.data.expires_in * 1000)
-    }).catch(err => {
-      console.log(err)
-    })
-  })
+  util.queryLogin()
 }
 
 export default async function request (options) {
@@ -88,23 +50,16 @@ export default async function request (options) {
             reject(res.data.msg)
           }
         } else if (res.statusCode == 401) {
-          console.log(401)
-          // wx.getUserProfile({
-          //   desc: '用于完善会员资料',
-          //   success: res => {
-          //     // 这里也可以选择性返回需要的字段
-          //     resolve(res)
-          //   }
-          // })
+          // console.log(res)
+          msg.toast('请重新登录', 'error')
+          reject(res.statusCode + ', ' + res.errMsg)
         } else {
-          console.log(res)
-          msg.alert(res.statusCode + ', ' + res.errMsg)
+          msg.toast('登录失败', 'error')
           reject(res.statusCode + ', ' + res.errMsg)
         }
       },
       fail: err => {
-        console.log(2222)
-        msg.alert(err.errMsg)
+        msg.toast(err.errMsg, 'error')
         reject(err.errMsg)
       }
     })

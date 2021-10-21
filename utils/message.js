@@ -16,6 +16,14 @@ export default class {
     })
   }
 
+  static toast(title = '加载中...' , icon = 'success', duration = 2000) {
+    wx.showToast({
+      title: title,
+      icon: icon,
+      duration: duration
+    })
+  }
+
   static close(stopPull = false, delta = 0) {
     wx.hideLoading()
     if(stopPull) {

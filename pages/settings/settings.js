@@ -1,5 +1,6 @@
 // pages/settings/settings.js
 import request from '../../utils/network'
+import util from '../../utils/util'
 Page({
 
   /**
@@ -8,28 +9,18 @@ Page({
   data: {
 
   },
-  toInfo() {
+  async toInfo() {
+    await util.checkLogin()
     request({
       url: 'user_info',
       method: 'POST'
     }).then(res => {
-      console.log(res.statusCode)
-      if(res.statusCode == 401) {
-        console.log(2222)
-        wx.getUserProfile({
-          desc: '用于完善会员资料',
-          success: res => {
-            // 这里也可以选择性返回需要的字段
-            wx.navigateTo({
-              url: '../info/info',
-            })
-          }
-        })
-      } else {
-        wx.navigateTo({
-          url: '../info/info',
-        })
-      }
+      console.log('rrrr',res)
+      wx.navigateTo({
+        url: '../info/info',
+      })
+    }).catch(r => {
+      console.log(r)
     })
   }
 })

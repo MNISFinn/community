@@ -3,7 +3,6 @@
 const app = getApp()
 
 import request from '../../utils/network'
-import { loginRequest } from '../../utils/util'
 
 Page({
   data: {
@@ -25,6 +24,27 @@ Page({
       this.setData({
         canIUseGetUserProfile: true
       })
+    }
+  },
+  onShow() {
+    let token = wx.getStorageSync('token')
+    if (token) {
+      request({
+      url: 'user_info',
+      method: 'POST',
+    }).then(res => {
+      console.log(res)
+      let user = {
+        avatarUrl: res.data.avatar,
+        nickName: res.data.user_name
+      }
+      this.setData({
+        userInfo: user,
+        hasUserInfo: true
+      })
+    }).catch(err => {
+      console.log(err)
+    })
     }
   },
   getUserProfile(e) {
@@ -60,11 +80,12 @@ Page({
         data: {
           code,
           name: user_info['nickName'],
+          avatar: user_info['avatarUrl'],
         }
       }).then(res => {
         user = {
-          avatarUrl: user_info['avatarUrl'],
-          nickName: res.data.user_name
+          avatarUrl: res.data.user_info.user_avatar,
+          nickName: res.data.user_info.user_name
         }
         this.setData({
           userInfo: user,

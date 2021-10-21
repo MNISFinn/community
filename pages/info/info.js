@@ -13,19 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.getUserProfile({
-            desc: '用于完善会员资料',
-            success: res => {
-              // 这里也可以选择性返回需要的字段
-              resolve(res)
-            }
-          })
-    // request({
-    //   url: 'user_info',
-    //   method: 'POST',
-    // }).then(res => {
-    //   console.log(res)
-    // })
+  
   },
 
   /**

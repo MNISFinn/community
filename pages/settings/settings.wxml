@@ -1,4 +1,5 @@
 <!--pages/settings/settings.wxml-->
 <div class="settings-list">
-  <navigator class="list-items" url="../info/info">会员信息</navigator>
+  <!-- <navigator class="list-items" url="../info/info">会员信息</navigator> -->
+  <div class="list-items" bindtap="toInfo">会员信息</div>
 </div>
