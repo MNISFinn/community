@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "会员主页"
+  "navigationBarTitleText": "会员主页",
+  "usingComponents": {
+    "userFunctions": "/components/userFunctions/userFuncions"
+  }
 }

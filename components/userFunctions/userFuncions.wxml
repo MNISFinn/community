@@ -1,0 +1,12 @@
+<!--components/userFuncions.wxml-->
+<view>
+  <div class="function-area">
+    <div class="pub-item title-area">
+      <div wx:if="{{theme}}" class="title-item item-theme">{{theme}}</div>
+      <div wx:for="{{title}}" wx:for-item="item" wx:key="key" class="title-item">{{item}}</div>
+    </div>
+    <div class="pub-item btn-area">
+      <button class="btn-item" size="mini">{{btn_words}}</button>
+    </div>
+  </div>
+</view>

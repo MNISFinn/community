@@ -1,6 +1,9 @@
 /* pages/profile/profile.wxss */
 .container {
   padding: 0;
+  background-image:
+  repeating-linear-gradient(rgb(230, 230, 230) 0%, rgb(230, 230, 230) 0.1%, rgba(0, 0, 0, 0) 0.1%, rgba(0, 0, 0, 0) 5%),
+  repeating-linear-gradient(to right, rgb(230, 230, 230) 0%, rgb(230, 230, 230) 0.1%, rgba(0, 0, 0, 0) 0.1%, rgba(0, 0, 0, 0) 5%);
 }
 .userinfo {
   display: flex;
@@ -10,10 +13,10 @@
   color: rgb(59, 59, 59);
   width: 100%;
   padding-bottom: 200rpx;
-  background-color: burlywood;
+  /* background-color: burlywood; */
   font-weight: 600;
   font-size: 1rem;
-}
+  }
 
 .userinfo-avatar {
   overflow: hidden;
@@ -21,6 +24,13 @@
   height: 120rpx;
   margin: 40rpx 20rpx 20rpx 20rpx;
   border-radius: 50%;
+}
+
+.login-btn {
+  float: left;
+  background-color: #e2a140;
+  margin: auto 0;
+  border-radius:25px;
 }
 
 .profile-list {
