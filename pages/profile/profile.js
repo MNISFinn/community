@@ -6,6 +6,7 @@ import request from '../../utils/network'
 
 Page({
   data: {
+    userData: {},
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -39,6 +40,7 @@ Page({
         nickName: res.data.user_name
       }
       this.setData({
+        userData: res.data,
         userInfo: user,
         hasUserInfo: true
       })
@@ -88,6 +90,7 @@ Page({
           nickName: res.data.user_info.user_name
         }
         this.setData({
+          userData: res.data,
           userInfo: user,
           hasUserInfo: true
         })
@@ -112,5 +115,15 @@ Page({
   },
   test() {
     console.log('test')
+  },
+  improveInfo() {
+    let _that = this
+    wx.navigateTo({
+      url: '../info/info',
+      success: function(res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', { data: _that.data.userData })
+      }
+    })
   },
 })

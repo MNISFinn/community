@@ -19,26 +19,13 @@
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <button class="info-btn" size="mini" bindtap="improveInfo">完善信息</button>
     </block>
     <!-- <button bindtap="test">test</button> -->
   </view>
-  <!-- <view class="profile-list">
-    <navigator url="../settings/settings">
-    <div class="profile-list-item">设置</div>
-    </navigator>
-    <div class="profile-list-item">反馈</div>
-  </view> -->
-  <!-- 待定新建订单页 -->
-  <!-- <view id="order-title">
-  <text class="my-order">我的订单</text>
-  <text class="order-list">全部订单 ></text>
-  </view>
-  <view id="order-type">
-    <view class="type-item">未到达</view>
-    <view class="type-item">已到达</view>
-    <view class="type-item">已取消</view>
-  </view> -->
 
   <userFunctions theme="随时买" title="{{['想吃想用', '不想出门🏠']}}" btn_words="叫人买"></userFunctions>
+  <userFunctions title="{{['小区位置', '商圈距离']}}" btn_words="搜一下"></userFunctions>
+  <userFunctions title="{{['小区位置', '商圈距离']}}" btn_words="搜一下"></userFunctions>
   <userFunctions title="{{['小区位置', '商圈距离']}}" btn_words="搜一下"></userFunctions>
 </view>

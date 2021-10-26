@@ -1,2 +1,44 @@
 <!--pages/info/info.wxml-->
-<view>info</view>
+<view class="container">
+  <form class="info-form" catchsubmit="formSubmit">
+    <view class="form-item">
+      <view class="item-title">昵称：</view>
+      <view class="item-value">
+        <input value="{{userInfo.user_name}}" />
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="item-title">手机号：</view>
+      <view class="item-value">
+        <input value="{{userInfo.mobile}}" />
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="item-title">邮箱：</view>
+      <view class="item-value">
+        <input value="{{userInfo.email}}"/>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="item-title">真实姓名：</view>
+      <view class="item-value">
+        <input value="{{userInfo.true_name}}"/>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="item-title">身份证号：</view>
+      <view class="item-value">
+        <input value="{{userInfo.id_card}}" />
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="item-title">小区名称：</view>
+      <view class="item-value">
+        <input />
+      </view>
+    </view>
+    <view class="btn-area">
+        <button class="update-btn" formType="submit">更新</button>
+      </view>
+  </form>
+</view>
