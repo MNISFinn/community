@@ -90,7 +90,7 @@ Page({
           nickName: res.data.user_info.user_name
         }
         this.setData({
-          userData: res.data,
+          userData: res.data.user_info,
           userInfo: user,
           hasUserInfo: true
         })
@@ -124,6 +124,21 @@ Page({
         // 通过eventChannel向被打开页面传送数据
         res.eventChannel.emit('acceptDataFromOpenerPage', { data: _that.data.userData })
       }
+    })
+  },
+  onSendOrder(e) {
+    wx.navigateTo({
+      url: '../logs/logs',
+    })
+  },
+  onSearch(e) {
+    wx.navigateTo({
+      url: '../settings/settings',
+    })
+  },
+  onRegister(e) {
+    wx.navigateTo({
+      url: '../register/register',
     })
   },
 })

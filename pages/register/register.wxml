@@ -1,8 +1,9 @@
+<!--pages/register.wxml-->
 <!--pages/info/info.wxml-->
 <view class="container">
   <form class="info-form" catchsubmit="formSubmit">
     <view class="form-item">
-      <view class="item-title">昵称：</view>
+      <view class="item-title">真实姓名：</view>
       <view class="item-value">
         <input name="user_name" value="{{userInfo.user_name}}" />
       </view>
@@ -19,14 +20,20 @@
         <input name="email" value="{{userInfo.email}}"/>
       </view>
     </view>
-    <!-- <view class="form-item">
-      <view class="item-title">小区名称：</view>
+    <view class="form-item">
+      <view class="item-title">身份证号：</view>
       <view class="item-value">
         <input />
       </view>
-    </view> -->
+    </view>
+    <view class="form-item">
+      <view class="item-title">身份证正反面：</view>
+      <view class="item-value">
+        <button size="mini" bindtap="front">+</button>
+      </view>
+    </view>
     <view class="btn-area">
-        <button class="update-btn" formType="submit">更新</button>
+        <button class="update-btn" formType="submit">申请注册</button>
       </view>
   </form>
 </view>

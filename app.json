@@ -5,12 +5,13 @@
     "pages/profile/profile",
     "pages/settings",
     "pages/settings/settings",
-    "pages/info/info"
+    "pages/info/info",
+    "pages/register/register"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "贩卖四线时光",
+    "navigationBarTitleText": "小区派送",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#ff9900",
     "enablePullDownRefresh": false

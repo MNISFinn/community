@@ -1,26 +1,18 @@
-// pages/info/info.js
-import request from '../../utils/network'
+// pages/register.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo: {},
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let _that = this
-    const eventChannel = this.getOpenerEventChannel()
-    // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
-    eventChannel.on('acceptDataFromOpenerPage', function(data) {
-      _that.setData({
-        userInfo: data.data
-      })
-    })
+
   },
 
   /**
@@ -70,5 +62,16 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  front() {
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success (res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+      }
+    })
+  },
 })

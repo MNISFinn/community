@@ -6,7 +6,7 @@
       <div wx:for="{{title}}" wx:for-item="item" wx:key="key" class="title-item">{{item}}</div>
     </div>
     <div class="pub-item btn-area">
-      <button class="btn-item" size="mini">{{btn_words}}</button>
+      <button class="btn-item" size="mini" bindtap="onTap">{{btn_words}}</button>
     </div>
   </div>
 </view>
