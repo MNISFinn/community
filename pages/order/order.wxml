@@ -1,0 +1,37 @@
+<!--pages/order/order.wxml-->
+<view class="container">
+  
+  <form class="info-form" catchsubmit="formSubmit">
+    <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" wx:for="{{goodsList}}" wx:key="key">
+  　　<view class="content">
+  　　　　<view style="{{item.txtStyle}}" class='item' data-index='{{index}}' bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchend="touchE">
+        <view class="form-item">
+          <view class="item-title">商品名称：</view>
+          <view class="item-value">
+            <input id="goods_name-{{index}}" name="goods_name_{{index}}" bindinput="setGoodsName" value="{{item.goods_name}}" />
+          </view>
+        </view>
+        <view class="form-item">
+          <view class="item-title">商品数量：</view>
+          <view class="item-value">
+            <input id="goods_quantity-{{index}}" name="goods_quantity_{{index}}" bindinput="setGoodsQuantity" value="{{item.goods_quantity}}" />
+          </view>
+        </view>
+        <view class="form-item">
+          <view class="item-title">商品描述：</view>
+          <view class="item-value">
+            <input id="goods_detail-{{index}}" name="goods_detail_{{index}}" bindinput="setGoodsDetail" value="{{item.goods_detail}}" />
+          </view>
+        </view>
+  　　</view>
+  </view>
+
+  <view class="del" bindtap="removeItem" data-index="{{index}}">删除</view>
+  </view>
+
+    <button size="mini" bindtap="addItem">新增商品</button>
+    <view class="btn-area">
+        <button class="update-btn" formType="submit">派单</button>
+      </view>
+  </form>
+</view>

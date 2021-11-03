@@ -23,8 +23,13 @@
     </block>
     <!-- <button bindtap="test">test</button> -->
   </view>
-
-  <userFunctions theme="随时买" title="{{['想吃想用', '不想出门🏠']}}" btn_words="叫人买" bindsendOrder="onSendOrder"></userFunctions>
-  <userFunctions title="{{['小区位置', '商圈距离']}}" btn_words="搜一下" bindsearch="onSearch"></userFunctions>
-  <userFunctions title="{{['闲着没事', '成为配送员']}}" btn_words="注册" bindregister="onRegister"></userFunctions>
+  <!-- 用户/配送员界面切换 -->
+  <view wx:if="{{!userInfo.is_deliver}}">
+    <userFunctions theme="随时买" title="{{['想吃想用', '不想出门🏠']}}" btn_words="叫人买" bindsendOrder="onSendOrder" />
+    <userFunctions title="{{['小区位置', '商圈距离']}}" btn_words="搜一下" bindsearch="onSearch" />
+    <userFunctions title="{{['闲着没事', '成为配送员']}}" btn_words="注册" bindregister="onRegister" />
+  </view>
+  <view wx:else>
+    <userFunctions title="{{['我的任务', '按时派送']}}" btn_words="接单" bindregister="onRegister" />
+  </view>
 </view>

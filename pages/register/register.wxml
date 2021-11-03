@@ -1,5 +1,4 @@
 <!--pages/register.wxml-->
-<!--pages/info/info.wxml-->
 <view class="container">
   <form class="info-form" catchsubmit="formSubmit">
     <view class="form-item">

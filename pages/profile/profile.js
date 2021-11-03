@@ -128,7 +128,7 @@ Page({
   },
   onSendOrder(e) {
     wx.navigateTo({
-      url: '../logs/logs',
+      url: '../order/order',
     })
   },
   onSearch(e) {

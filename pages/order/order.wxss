@@ -1,4 +1,4 @@
-/* pages/register.wxss */
+/* pages/order/order.wxss */
 page {
   height: 100%;
 }
@@ -27,6 +27,12 @@ page {
   width: 90%;
 }
 
+.goods-module {
+  border: 1px solid #999999;
+  /* border-radius: 10%; */
+  margin-bottom: 20rpx;
+}
+
 .form-item {
   display: flex;
   justify-content: space-between;
@@ -37,11 +43,51 @@ page {
   width: 100%;
 }
 
-
 .update-btn {
   background: none;
   color: #e2a140;
   border: 1px solid #e2a140;
   margin: auto 0;
   border-radius:25px;
+}
+
+.touch-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 10rpx;
+  background: white;
+  border:1px solid #eeeeee;
+  border-radius: 5%;
+  }
+  
+.content {
+  width: 100%;
+  margin-right: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+  margin-left: -90px;
+}
+  
+.del {
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  font-size: 35rpx;
+  background-color: #e2a140;
+}
+  
+.touch-move-active .content, .touch-move-active .del {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
 }
