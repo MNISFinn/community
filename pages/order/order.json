@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "派单",
   "usingComponents": {
-    
+    "goodsList": "../../components/goodsList/goodsList"
   }
 }
