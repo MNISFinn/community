@@ -1,0 +1,16 @@
+<!--pages/orderDelivering/orderDelivering.wxml-->
+<view class="container">
+  <view>订单状态title</view>
+  <!-- 根据状态判断展示 -->
+  <view>倒计时</view>
+  <view>配送员信息</view>
+  
+  <view>派送单详情</view>
+
+  <block wx:for="{{list}}" wx:key="key">
+    <image src="{{item}}"></image>
+  </block>
+  
+
+  <button size="mini" bindtap="uploadImg">uploadImg</button>
+</view>

@@ -3,11 +3,11 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/profile/profile",
-    "pages/settings",
     "pages/settings/settings",
     "pages/info/info",
     "pages/register/register",
-    "pages/order/order"
+    "pages/order/order",
+    "pages/orderDelivering/orderDelivering"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,6 +18,11 @@
     "enablePullDownRefresh": false
   },
   "tabBar": {
+    "custom": true,
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
     "list": [
       {
         "text": "首页",
@@ -33,6 +38,7 @@
       }
     ]
   },
+  "usingComponents": {},
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

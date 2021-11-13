@@ -69,5 +69,16 @@ Page({
     const selfGoodsList = this.selectComponent('#self') // 自选商品
     console.log(storeGoodsList)
     console.log(selfGoodsList)
+
+    // 请求下单接口
+    wx.showLoading({
+      title: '加载中...',
+      mask: true,
+      success: function() {
+        wx.navigateTo({
+          url: '../orderDelivering/orderDelivering',
+        })
+      }
+    })
   }
 })

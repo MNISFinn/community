@@ -15,3 +15,5 @@ node_modules/
 
 project.config.json
 project.private.config.json
+
+package-lock.json
