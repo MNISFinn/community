@@ -20,6 +20,15 @@
           <input id="goods_detail-{{index}}" name="goods_detail_{{index}}" bindinput="setGoodsDetail" value="{{item.goods_detail}}" />
         </view>
       </view>
+      <view class="form-item">
+      <view class="item-title">商品图片：</view>
+        <view wx:for="{{item.goods_imgs}}" wx:key="imgs_key"  wx:for-item="goods_img_item">
+          <image src="{{goods_img_item}}" class="goods-img" />
+        </view>
+      <view class="item-value">
+        <button size="mini" id="goods_img-{{index}}" bindtap="uploadGoods">+</button>
+      </view>
+    </view>
 　　</view>
   </view>
   <view class="del" bindtap="removeItem" data-index="{{index}}">删除</view>

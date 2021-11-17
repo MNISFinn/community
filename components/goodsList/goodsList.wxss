@@ -39,3 +39,8 @@
   -webkit-transform: translateX(0);
   transform: translateX(0);
 }
+
+.goods-img {
+  width: 100rpx;
+  height: 100rpx;
+}

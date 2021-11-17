@@ -1,4 +1,6 @@
 // components/goodsList/goodsList.js
+import util from '../../utils/util'
+
 Component({
   behaviors: ['wx://component-export'],
   
@@ -179,5 +181,37 @@ Component({
         goodsList: this.data.goodsList
       });
     },
+
+    /**
+     * 上传商品图片
+     */
+    uploadGoods: function(e) {
+      let _that = this
+      let index = parseInt(e.currentTarget.id.replace("goods_img-", ""));
+      let goods_list = _that.data.goodsList;
+      if (goods_list[index].goods_imgs == undefined) {
+        goods_list[index].goods_imgs = []
+      }
+       
+      wx.chooseImage({
+        count: 3,
+        sizeType: ['original', 'compressed'],
+        sourceType: ['album', 'camera'],
+        success (res) {
+          // tempFilePath可以作为img标签的src属性显示图片
+          const path = res.tempFilePaths
+          for (let i = 0; i< path.length; i++) {
+            util.uploadFile(path[i], 'order-goods').then(res => {
+              goods_list[index].goods_imgs.push(res)
+            })
+          }
+          
+          _that.setData({
+            goodsList: goods_list
+          });
+        }
+      })
+
+    }
   }
 })

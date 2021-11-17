@@ -73,8 +73,39 @@ const queryLogin = () => {
     })
 }
 
+const uploadFile = (path, bucket) => {
+  return new Promise((resolve, reject) => {
+    wx.uploadFile({ //上传到服务器
+    url: 'https://api.fridaysoon.asia/upload_file',
+    filePath: path,//文件地址
+    name: 'file',//文件name值
+    formData: {
+      'bucket': bucket
+    },
+    success: res => {
+      if (res.statusCode == 200) {
+        let result = JSON.parse(res.data)
+        if (result.code === 0) {
+          resolve(result.data)
+        } else {
+          msg.alert(result.msg)
+          reject(result.msg)
+        }
+      }
+    },
+    fail: err => {
+      let err_result = JSON.parse(err)
+      msg.toast(err_result.errMsg, 'error')
+      reject(err_result.errMsg)
+    }
+  })
+  })
+  
+}
+
 module.exports = {
   formatTime,
   checkLogin,
-  queryLogin
+  queryLogin,
+  uploadFile
 }

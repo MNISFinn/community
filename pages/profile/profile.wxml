@@ -25,7 +25,7 @@
   </view>
   <!-- 用户/配送员界面切换 -->
   <view wx:if="{{!userInfo.is_deliver}}">
-    <userFunctions theme="随时买" title="{{['想吃想用', '不想出门🏠']}}" btn_words="叫人买" bindsendOrder="onSendOrder" />
+    <userFunctions theme="随时买" title="{{['想吃想用', '不想出门🏠']}}" btn_words="派人买" bindsendOrder="onSendOrder" />
     <userFunctions title="{{['小区位置', '商圈距离']}}" btn_words="搜一下" bindsearch="onSearch" />
     <userFunctions title="{{['闲着没事', '成为配送员']}}" btn_words="注册" bindregister="onRegister" />
   </view>

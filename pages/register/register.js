@@ -1,18 +1,40 @@
 // pages/register.js
+import msg from '../../utils/message'
+import util from '../../utils/util'
+import request from '../../utils/network'
+
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    user_id: 0,
+    mobile: '',
+    email: '',
+    id_card_front: '',
+    id_card_back: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let userInfo = app.globalData.userInfo
+    if (userInfo == null) {
+      msg.toast('请先登录')
+      wx.switchTab({
+        url: '../profile/profile',
+      })
+    } else {
+      this.setData({
+        user_id: userInfo['user_id'],
+        mobile: userInfo['mobile'],
+        email: userInfo['email']
+      })
+    }
   },
 
   /**
@@ -63,15 +85,68 @@ Page({
   onShareAppMessage: function () {
 
   },
-  front() {
+
+  /**
+   * 上传身份证正面
+   */
+  uploadFront: function() {
+    let _that = this
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success (res) {
         // tempFilePath可以作为img标签的src属性显示图片
-        const tempFilePaths = res.tempFilePaths
+        const path = res.tempFilePaths[0]
+          util.uploadFile(path, 'order-goods').then(res => {
+            _that.setData({
+              id_card_front: res
+            })
+          })
+      }
+    })    
+  },
+
+  /**
+   * 上传身份证反面
+   */
+  uploadBack: function() {
+    let _that = this
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success (res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const path = res.tempFilePaths[0]
+          util.uploadFile(path, 'order-goods').then(res => {
+            _that.setData({
+              id_card_back: res
+            })
+          })
       }
     })
   },
+  formSubmit: function(e) {
+    let info = e.detail.value
+    console.log(info)
+    request({
+      url: 'deliver_register',
+      method: 'POST',
+      data: {
+        user_id: this.data.user_id,
+        true_name: info['true_name'],
+        mobile: info['mobile'],
+        email: info['email'],
+        id_card: info['id_card'],
+        id_card_front: this.data.id_card_front,
+        id_card_back: this.data.id_card_back
+      }
+    }).then(res => {
+      console.log(res)
+      msg.toast(res.message)
+    }).catch(err => {
+
+    })
+  }
 })

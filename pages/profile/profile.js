@@ -54,6 +54,7 @@ Page({
         userInfo: user,
         hasUserInfo: true
       })
+      app.globalData.userInfo = res.data  // 存储全局变量
     }).catch(err => {
       console.log(err)
     })
@@ -104,6 +105,7 @@ Page({
           userInfo: user,
           hasUserInfo: true
         })
+        app.globalData.userInfo = res.data.user_info  // 存储全局变量
         wx.setStorageSync('token', res.data.token) // 存储token
         wx.setStorageSync('expireTime', new Date().getTime() + res.data.expires_in * 1000)
       }).catch(err => {

@@ -4,31 +4,39 @@
     <view class="form-item">
       <view class="item-title">真实姓名：</view>
       <view class="item-value">
-        <input name="user_name" value="{{userInfo.user_name}}" />
+        <input name="true_name" value="{{true_name}}" />
       </view>
     </view>
     <view class="form-item">
       <view class="item-title">手机号：</view>
       <view class="item-value">
-        <input name="mobile" value="{{userInfo.mobile}}" />
+        <input name="mobile" value="{{mobile}}" />
       </view>
     </view>
     <view class="form-item">
       <view class="item-title">邮箱：</view>
       <view class="item-value">
-        <input name="email" value="{{userInfo.email}}"/>
+        <input name="email" value="{{email}}"/>
       </view>
     </view>
     <view class="form-item">
       <view class="item-title">身份证号：</view>
       <view class="item-value">
-        <input />
+        <input name="id_card" value="{{id_card}}" />
       </view>
     </view>
     <view class="form-item">
-      <view class="item-title">身份证正反面：</view>
+      <view class="item-title">身份证正面：</view>
+        <image src="{{id_card_front}}" class="idcards" />
       <view class="item-value">
-        <button size="mini" bindtap="front">+</button>
+        <button size="mini" bindtap="uploadFront">+</button>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="item-title">身份证反面：</view>
+        <image src="{{id_card_back}}" class="idcards" />
+      <view class="item-value">
+        <button size="mini" bindtap="uploadBack">+</button>
       </view>
     </view>
     <view class="btn-area">
