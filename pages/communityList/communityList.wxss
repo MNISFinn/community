@@ -1,0 +1,22 @@
+/* pages/communityList/communityList.wxss */
+page {
+  height: 100%;
+}
+
+.container {
+  padding: 0;
+  background-image:
+  -webkit-linear-gradient(0deg, #eeeeee 1%,transparent 3%,transparent),
+  -webkit-linear-gradient(90deg,#eeeeee 1%,transparent 3%,transparent);
+  background-image:
+  -moz-linear-gradient(0deg,#eeeeee 1%,transparent 3%,transparent),
+  -moz-linear-gradient(90deg,#eeeeee 1%,transparent 3%,transparent);
+  background-image:
+  -o-linear-gradient(0deg,#eeeeee 1%,transparent 3%,transparent),
+  -o-linear-gradient(90deg,#eeeeee 1%,transparent 3%,transparent);
+  background-image:
+  linear-gradient(0deg,#eeeeee 1%,transparent 3%,transparent),
+  linear-gradient(90deg,#eeeeee 1%,transparent 3%,transparent);
+  background-size:20px 20px;
+  background-attachment:fixed;
+}

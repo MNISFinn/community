@@ -1,0 +1,9 @@
+<!--pages/addCommunity/addCommunity.wxml-->
+<view>
+  <map
+    id="mapId"
+    latitude="{{latitude}}"
+    longitude="{{longitude}}"
+    style="width: 100%;height: 500rpx;"
+  ></map>
+</view>

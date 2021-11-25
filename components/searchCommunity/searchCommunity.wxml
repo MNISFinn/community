@@ -1,0 +1,25 @@
+<!--components/searchCommunity/searchCommunity.wxml-->
+<view class="half-screen">
+  <!--屏幕背景变暗的背景  -->
+  <view class="background_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+  <!--弹出框  -->
+  <view animation="{{animationData}}" class="attr_box" wx:if="{{showModalStatus}}">
+    <!-- <view class="ctTitle">{{title}}</view> -->
+    <form>
+    <view>城市：<input name="city" value="{{city}}" bindfocus="handleFoucus" /></view>
+    <view>小区：<input name="city" /></view>
+    <view>详细地址：<input name="address" /></view>
+  </form>
+    <view class="thresholdBtn">
+      <button id="yes" class="confirm" size="mini" type="primary" bindtap="hideModal">确定</button>
+    </view>
+  </view>
+
+  <selector-component
+    show="{{selectorVisible}}"
+    key="USMBZ-3FMRV-LSEPR-UMKA2-KUOW5-CXFH4"
+    referer="四线时光"
+    hotCitys=""
+    bindselect="onSelectCity"
+></selector-component>
+</view>

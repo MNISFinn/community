@@ -145,7 +145,7 @@ Page({
   },
   onSearch(e) {
     wx.navigateTo({
-      url: '../settings/settings',
+      url: '../communityList/communityList',
     })
   },
   onRegister(e) {
