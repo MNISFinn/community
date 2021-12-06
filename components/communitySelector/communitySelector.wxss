@@ -1,0 +1,36 @@
+/* components/communitySelector/communitySelector.wxss */
+thresholdBtn {
+  text-align: center;
+}
+
+.add-form {
+  display: flex;
+  font-size: 16px;
+}
+
+.form-item {
+  display: flex;
+  margin: 20rpx;
+  justify-content: space-between;
+}
+
+.item-input {
+  background-color: #eeeeee;
+  border-radius: 100rpx/100rpx;
+}
+
+.add-btn {
+  background: none;
+  color: #e2a140;
+  border: 1px solid #e2a140;
+  margin: auto 0;
+  border-radius:25px;
+}
+
+.communities {
+  margin-top: -100rpx;
+  height: 700rpx;
+  position: absolute;
+  background-color: white;
+  z-index: 100;
+}

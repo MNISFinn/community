@@ -21,7 +21,7 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "小区派送",
     "navigationBarTextStyle": "black",
-    "backgroundColor": "#ff9900",
+    "backgroundColor": "#ffffff",
     "enablePullDownRefresh": false
   },
   "tabBar": {

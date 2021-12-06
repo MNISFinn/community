@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "配送员注册",
-  "usingComponents": {}
+  "usingComponents": {
+    "community-selector": "/components/communitySelector/communitySelector"
+  }
 }

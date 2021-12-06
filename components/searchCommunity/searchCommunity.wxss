@@ -14,7 +14,7 @@
 }
 /*对话框 */
 .attr_box {
-  height: 230px;
+  height: 800rpx;
   width: 100%;
   overflow: hidden;
   position: fixed;
@@ -33,8 +33,38 @@
   margin-top: -30px;
   margin-left: 120px;
 }
-.thresholdBtn .confirm{
-  height: 30px;
-  width: 80px;
-  margin-left: 120px;
+.thresholdBtn {
+  text-align: center;
+}
+
+.add-form {
+  display: flex;
+  font-size: 16px;
+}
+
+.form-item {
+  display: flex;
+  margin: 20rpx;
+  justify-content: space-between;
+}
+
+.item-input {
+  background-color: #eeeeee;
+  border-radius: 100rpx/100rpx;
+}
+
+.add-btn {
+  background: none;
+  color: #e2a140;
+  border: 1px solid #e2a140;
+  margin: auto 0;
+  border-radius:25px;
+}
+
+.communities {
+  margin-top: -160rpx;
+  height: 700rpx;
+  position: absolute;
+  background-color: white;
+  z-index: 100;
 }

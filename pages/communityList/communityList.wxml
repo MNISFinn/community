@@ -1,10 +1,22 @@
 <!--pages/communityList/communityList.wxml-->
 <view class="container">
-  <view wx:if="{{list != ''}}">
+  <view class="navbar">
+    <button size="mini" class="add-btn" bindtap="showSelector">添加小区</button>
   </view>
+
+  <block wx:if="{{list != ''}}">
+    <view wx:for="{{list}}" wx:key="key" style="margin-top: 100rpx;">
+      <view class="list-item">
+        <view>{{item.community_name}}</view>
+        <view>{{item.address}}</view>
+      </view>
+    </view>
+    
+  </block>
   <view wx:else>
-    <button size="mini" bindtap="showSelector">添加小区</button>
-    <view>快去添加所在的小区吧</view>
+    <view class="list" style="margin-top: 100rpx;">
+      <view>快去添加所在的小区吧</view>
+    </view>
   </view>
   <search-community id="search-community" title="search"></search-community>
 </view>

@@ -39,8 +39,17 @@
         <button size="mini" bindtap="uploadBack">+</button>
       </view>
     </view>
+    <view class="form-item">
+      <view class="item-title">配送小区：</view>
+      <view class="item-value">
+        <value value="{{community_info.title}}" />{{community_info.title}}
+      </view>
+      <button size="mini" class="selector-btn" bindtap="showSelector">选择小区</button>
+    </view>
     <view class="btn-area">
         <button class="update-btn" formType="submit">申请注册</button>
       </view>
   </form>
+
+  <community-selector id="community-selector" showModalStatus="{{showModalStatus}}" bindshow="showCommunity"></community-selector>
 </view>

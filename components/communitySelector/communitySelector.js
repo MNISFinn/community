@@ -1,4 +1,4 @@
-// components/searchCommunity/searchCommunity.js
+// components/communitySelector/communitySelector.js
 import request from '../../utils/network'
 
 const app = getApp()
@@ -10,10 +10,15 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    title: {
-      type: String,
-      value: '标题'
+    showModalStatus: {
+      type: Boolean,
+      value: false
     }
+  },
+
+  behaviors: ['wx://component-export'],
+  export() {
+    return { myField: 'myValue' }
   },
 
   /**
@@ -33,23 +38,9 @@ Component({
 
   lifetimes: {
     attached: function() {
-      // let user_id = app.globalData.userInfo['user_id']
       qqmap = new qqmap_sdk({
         key: 'USMBZ-3FMRV-LSEPR-UMKA2-KUOW5-CXFH4'
       })
-      // console.log(app.globalData.userInfo)
-      // request({
-      //   url: 'get_addresses',
-      //   method: 'POST',
-      //   data: {
-      //     user_id: user_id
-      //   }
-      // }).then(res => {
-      //   console.log(res)
-      //   this.hideModal()
-      // }).catch(err => {
-
-      // })
     }
   },
 
@@ -57,60 +48,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    /**
-     * 点击显示底部弹出
-     */
-    changeRange: function() {
-      this.showModal()
-    },
-
-    /**
-     * 底部弹出框
-     */
-    showModal: function() {
-      // 背景遮罩层
-      var animation = wx.createAnimation({
-        duration: 200,
-        timingFunction: "linear",
-        delay: 0
-      })
-      //this.animation = animation
-      animation.translateY(300).step()
-      this.setData({
-        animationData: animation.export(),
-        showModalStatus: true
-      })
-      setTimeout(function () {
-      animation.translateY(0).step()
-      this.setData({
-        animationData: animation.export()
-        })
-      }.bind(this), 200)
-    },
-
-    /**
-     * 点击背景面任意一处时，弹出框隐藏
-     */
-    hideModal:function() {
-      //弹出框消失动画
-      var animation = wx.createAnimation({
-        duration: 200,
-        timingFunction: "linear",
-        delay: 0
-      })
-      //this.animation = animation
-      animation.translateY(300).step()
-      this.setData({
-        animationData: animation.export(),
-      })
-      setTimeout(function () {
-        animation.translateY(0).step()
-        this.setData({
-          animationData: animation.export(),
-          showModalStatus: false
-        })
-      }.bind(this), 200)
-    },
     handleFoucus: function() {
       this.setData({
         selectorVisible: true
@@ -176,34 +113,17 @@ Component({
         }
       });
     },
+    selectCommunity: function(event) {
+      console.log('aaaa')
+      var myEventDetail = {
+        'community_info': this.data.community_info
+      } // detail对象，提供给事件监听函数
+      var myEventOption = {} // 触发事件的选项
+      this.triggerEvent('show', myEventDetail, myEventOption)
 
-    /**
-     * 添加小区
-     * @param {*} event 
-     */
-    submitAddress: function(event) {
-      let user_id = app.globalData.userInfo['user_id']
-      let address = event.detail.value.address
-      let community = this.data.community_info
-      console.log(address, community)
-      request({
-        url: 'add_address',
-        method: 'POST',
-        data: {
-          address,
-          community,
-          user_id
-        }
-      }).then(res => {
-        console.log(res)
-        wx.redirectTo({
-          url: '../../pages/communityList/communityList',
-        })
-        this.hideModal()
-      }).catch(err => {
-        console.log(err)
+      this.setData({
+        showModalStatus: false
       })
-      
     }
   }
 })

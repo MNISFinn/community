@@ -19,9 +19,11 @@ Page({
     //   key: 'USMBZ-3FMRV-LSEPR-UMKA2-KUOW5-CXFH4'
     // })
     // let _that = this
-    // wx.authorize({
-    //   scope: 'scope.userLocation'
-    // })
+    wx.authorize({
+      scope: 'scope.userLocation'
+    }).then(res => {
+      console.log(res)
+    })
     // wx.getLocation({
     //   type: 'gcj02',
     //   success (res) {

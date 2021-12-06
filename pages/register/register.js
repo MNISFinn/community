@@ -15,13 +15,16 @@ Page({
     mobile: '',
     email: '',
     id_card_front: '',
-    id_card_back: ''
+    id_card_back: '',
+    selectorVisible: false,
+    community_info: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // console.log(this.selectComponent('#community-selector').myField)
     let userInfo = app.globalData.userInfo
     if (userInfo == null) {
       msg.toast('请先登录')
@@ -40,8 +43,8 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
+  onReady: function() {
+    this.search = this.selectComponent("#community-selector")
   },
 
   /**
@@ -147,6 +150,17 @@ Page({
       msg.toast(res.message)
     }).catch(err => {
 
+    })
+  },
+  showSelector: function() {
+    this.setData({
+      showModalStatus: true
+    })
+  },
+  showCommunity: function(event) {
+    console.log(event.detail.community_info)
+    this.setData({
+      community_info: event.detail.community_info
     })
   }
 })

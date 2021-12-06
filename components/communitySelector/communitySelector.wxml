@@ -1,11 +1,7 @@
-<!--components/searchCommunity/searchCommunity.wxml-->
-<view class="half-screen">
-  <!--屏幕背景变暗的背景  -->
-  <view class="background_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
-  <!--弹出框  -->
-  <view animation="{{animationData}}" class="attr_box" wx:if="{{showModalStatus}}">
-    <!-- <view class="ctTitle">{{title}}</view> -->
-    <form class="add-form" catchsubmit="submitAddress">
+<!--components/communitySelector/communitySelector.wxml-->
+<view>
+  <bottom-modal showModalStatus="{{showModalStatus}}">
+    <form class="add-form" catchsubmit="selectCommunity">
       <view class="form-item">
         <view>城市：</view>
         <view>
@@ -19,15 +15,10 @@
           <input class="item-input" bindinput="getsuggest" value="{{backfill}}" />
         </view>
       </view>
-      <view class="form-item">
-        <view>详细地址：</view>
-        <view><input class="item-input" name="address" value="{{address}}" /></view>
-      </view>
       <view class="thresholdBtn">
         <button class="add-btn" size="mini" form-type="submit">确定</button>
       </view>
     </form>
-    
 
     <!--关键词输入提示列表渲染-->
     <scroll-view scroll-y="true" class="communities" wx:if="{{showSuggestion}}">
@@ -42,14 +33,13 @@
             </view>
       </view>
     </scroll-view>
-    
-  </view>
 
-  <selector-component
+    <selector-component
     show="{{selectorVisible}}"
     key="USMBZ-3FMRV-LSEPR-UMKA2-KUOW5-CXFH4"
     referer="四线时光"
     hotCitys=""
     bindselect="onSelectCity"
 ></selector-component>
+  </bottom-modal> 
 </view>

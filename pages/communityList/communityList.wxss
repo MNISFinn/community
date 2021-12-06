@@ -20,3 +20,19 @@ page {
   background-size:20px 20px;
   background-attachment:fixed;
 }
+
+.navbar {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: right;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(220, 220, 220);
+}
+
+.add-btn {
+  background: none;
+  color: #e2a140;
+}

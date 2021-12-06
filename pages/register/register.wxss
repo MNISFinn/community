@@ -49,3 +49,7 @@ page {
   width: 100rpx;
   height: 100rpx;
 }
+
+.selector-btn {
+  margin-right: 0;
+}
