@@ -101,7 +101,7 @@ Page({
       success (res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const path = res.tempFilePaths[0]
-          util.uploadFile(path, 'order-goods').then(res => {
+          util.uploadFile(path, 'id-card').then(res => {
             _that.setData({
               id_card_front: res
             })
@@ -122,7 +122,7 @@ Page({
       success (res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const path = res.tempFilePaths[0]
-          util.uploadFile(path, 'order-goods').then(res => {
+          util.uploadFile(path, 'id-card').then(res => {
             _that.setData({
               id_card_back: res
             })
@@ -143,7 +143,8 @@ Page({
         email: info['email'],
         id_card: info['id_card'],
         id_card_front: this.data.id_card_front,
-        id_card_back: this.data.id_card_back
+        id_card_back: this.data.id_card_back,
+        community_id: this.data.community_info.id
       }
     }).then(res => {
       console.log(res)
@@ -157,6 +158,10 @@ Page({
       showModalStatus: true
     })
   },
+  /**
+   * 选择小区后回传到页面
+   * @param {*} event 
+   */
   showCommunity: function(event) {
     console.log(event.detail.community_info)
     this.setData({

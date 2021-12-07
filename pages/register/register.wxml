@@ -22,7 +22,7 @@
     <view class="form-item">
       <view class="item-title">身份证号：</view>
       <view class="item-value">
-        <input name="id_card" value="{{id_card}}" />
+        <input name="id_card" type="idcard" value="{{id_card}}" />
       </view>
     </view>
     <view class="form-item">

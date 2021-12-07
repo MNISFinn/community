@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
+    "bottom-modal": "../bottomModal/index",
     "selector-component": "plugin://citySelector/selector-component"
   }
 }

@@ -1,10 +1,6 @@
 <!--components/searchCommunity/searchCommunity.wxml-->
-<view class="half-screen">
-  <!--屏幕背景变暗的背景  -->
-  <view class="background_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
-  <!--弹出框  -->
-  <view animation="{{animationData}}" class="attr_box" wx:if="{{showModalStatus}}">
-    <!-- <view class="ctTitle">{{title}}</view> -->
+<view>
+  <bottom-modal showModalStatus="{{showModalStatus}}">
     <form class="add-form" catchsubmit="submitAddress">
       <view class="form-item">
         <view>城市：</view>
@@ -27,29 +23,27 @@
         <button class="add-btn" size="mini" form-type="submit">确定</button>
       </view>
     </form>
-    
 
     <!--关键词输入提示列表渲染-->
     <scroll-view scroll-y="true" class="communities" wx:if="{{showSuggestion}}">
       <view wx:for="{{suggestion}}" wx:key="index">
-            <!--绑定回填事件-->
-            <view>
-              <!--根据需求渲染相应数据-->
-              <!--渲染地址title-->
-              <view style="text-align:center;" bindtap="backfill" id="{{index}}">{{item.title}}</view>
-              <!--渲染详细地址-->
-              <!-- <view style="font-size:12px;color:#666;text-align:center;">{{item.addr}}</view> -->
-            </view>
+        <!--绑定回填事件-->
+        <view>
+          <!--根据需求渲染相应数据-->
+          <!--渲染地址title-->
+          <view style="text-align:center;" bindtap="backfill" id="{{index}}">{{item.title}}</view>
+          <!--渲染详细地址-->
+          <!-- <view style="font-size:12px;color:#666;text-align:center;">{{item.addr}}</view> -->
+        </view>
       </view>
     </scroll-view>
     
-  </view>
-
-  <selector-component
-    show="{{selectorVisible}}"
-    key="USMBZ-3FMRV-LSEPR-UMKA2-KUOW5-CXFH4"
-    referer="四线时光"
-    hotCitys=""
-    bindselect="onSelectCity"
-></selector-component>
+      <selector-component
+        show="{{selectorVisible}}"
+        key="USMBZ-3FMRV-LSEPR-UMKA2-KUOW5-CXFH4"
+        referer="四线时光"
+        hotCitys=""
+        bindselect="onSelectCity"
+    ></selector-component>
+  </bottom-modal>  
 </view>
