@@ -12,8 +12,9 @@ Page({
   async toInfo() {
     await util.checkLogin()
     request({
-      url: 'user_info',
-      method: 'POST'
+      // url: 'user_info',
+      url: 'auth/info',
+      method: 'GET'
     }).then(res => {
       console.log('rrrr',res)
       wx.navigateTo({

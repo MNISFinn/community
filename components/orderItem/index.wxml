@@ -1,0 +1,32 @@
+<!--components/orderItem/index.wxml-->
+<!-- orderList for start -->
+<view wx:for="{{orderList}}" wx:key="idx" wx:for-item="orderItem">
+  <view class="order-container" bindtap="toDetail" data-order_id="{{orderItem.order_id}}">
+    <view class="num">No.{{orderItem.order_id}}</view>
+    <!-- storeGoodsList for start -->
+    <view wx:if="{{orderItem.order_goods.store.length > 0}}" wx:for="{{orderItem.order_goods.store}}" wx:key="store_idx" wx:for-item="storeItem" class="store">
+    <view class="store-title">
+      <view bindtap="toStore" data-store_id="{{storeItem.store_id}}">{{storeItem.store_name}}</view>  
+    </view>
+      <view class="goods-area" wx:for="{{storeItem.goods_list}}" wx:key="store_goods_idx" wx:for-item="storeGoodsItem">
+        <view>
+          <view>{{storeGoodsItem.goods_name}}</view>
+        </view>
+        <view>{{storeGoodsItem.goods_quantity}}</view>
+      </view>
+    </view>
+    <!-- storeGoodsList for end -->
+    <!-- selfGoodsList for start -->
+    <view wx:if="{{orderItem.order_goods.self.length > 0}}" wx:for="{{orderItem.order_goods.self}}" wx:key="self_idx" wx:for-item="selfItem" class="self">
+    <view class="self-title">自选</view>
+      <view class="goods-area">
+        <view>{{selfItem.goods_name}}</view>
+        <view>{{selfItem.goods_quantity}}</view>
+      </view>
+    </view>
+    <!-- selfGoodsList for end -->
+    <!-- status -->
+    <view class="status">{{orderItem.order_status}}</view>
+  </view>
+</view>
+<!-- orderList for end -->

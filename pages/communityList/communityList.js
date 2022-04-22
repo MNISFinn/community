@@ -21,7 +21,7 @@ Page({
     })
     let user_id = app.globalData.userInfo['user_id']
     request({
-      url: 'get_addresses',
+      url: 'address/list',
       method: 'POST',
       data: {
         user_id
@@ -29,7 +29,7 @@ Page({
     }).then(res => {
       console.log(res)
       this.setData({
-        list: res.data
+        list: res.data.data
       })
     }).catch(err => {
 

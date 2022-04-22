@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "订单列表",
+  "usingComponents": {
+    "tabControl": "../../components/tabControl/index",
+    "orderItem": "../../components/orderItem/index"
+  }
+}

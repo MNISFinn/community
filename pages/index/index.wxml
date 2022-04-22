@@ -1,3 +1,7 @@
 <!--index.wxml-->
-<view class="container">
+<view>
+  <searchBar />
+  <banner />
+  <goodsItem goodsList="{{goodsList}}" />
+  <cart />
 </view>

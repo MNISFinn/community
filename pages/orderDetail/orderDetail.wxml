@@ -1,0 +1,26 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class="container">
+  <view class="address-area">
+  <view class="title">收货地址</view>
+    <view class="area-item">小区地址</view>
+  </view>
+  <view class="detail-area">
+    <order-goods-list 
+      storeType="商家商品" 
+      goodsList="{{store_goods_list}}" 
+      wx:if="{{store_goods_list.length > 0}}" 
+    />
+    <order-goods-list 
+      storeType="自选商品" 
+      goodsList="{{self_goods_list}}" 
+      wx:if="{{self_goods_list.length > 0}}"
+    />
+  </view>
+
+  <view class="time-area">
+    <view>预计送达时间： {{expect_arrive_time}}</view>
+    <view>选择送达时间：</view>
+  </view>
+
+  <button size="mini" class="order-btn" bindtap="placeOrder">确认派单</button>
+</view>

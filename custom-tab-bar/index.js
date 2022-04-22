@@ -28,9 +28,7 @@ Component({
       text: "我的"
     }]
   },
-  attached() {
-
-  },
+  attached() {},
   ready:function(){
     this.setData({
       selected: app.globalData.selectedIndex

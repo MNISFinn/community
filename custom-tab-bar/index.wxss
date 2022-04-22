@@ -4,14 +4,16 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 48px;
+  height: 120rpx;
   background: white;
   display: flex;
   padding-bottom: env(safe-area-inset-bottom);
   border-radius: 180rpx/180rpx;
   width: 600rpx;
   margin: 0 auto 40rpx auto;
-  box-shadow: 0 0 20px rgba(220, 220, 220);
+  border: 1px solid  rgb(240, 240, 240);
+  /* box-shadow: 0 0 40rpx rgb(220, 220, 220); */
+  /* box-shadow: 0rpx 10rpx 50rpx 10rpx rgba(85, 85, 85, 0.10); */
 }
 
 .tab-bar-border {

@@ -26,7 +26,9 @@
   <!-- 用户/配送员界面切换 -->
   <view wx:if="{{!userInfo.is_deliver}}">
     <userFunctions theme="随时买" title="{{['想吃想用', '不想出门🏠']}}" btn_words="派人买" bindsendOrder="onSendOrder" />
+    <userFunctions title="{{['咨询客服', '联系配送员']}}" btn_words="聊天" bindsendOrder="onMsgList" />
     <userFunctions title="{{['小区位置', '商圈距离']}}" btn_words="搜一下" bindsearch="onSearch" />
+    <userFunctions title="{{['订单信息', '实时状态']}}" btn_words="查看" bindsearch="onOrderList" />
     <userFunctions title="{{['闲着没事', '成为配送员']}}" btn_words="注册" bindregister="onRegister" />
   </view>
   <view wx:else>

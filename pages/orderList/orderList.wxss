@@ -1,0 +1,20 @@
+/* pages/orderList/orderList.wxss */
+.TestTabBody {
+  height: 1500rpx;
+}
+
+.TestTabBody-item {
+  height: auto;
+  margin-top: 50rpx;
+  /* color: #e2a140; */
+}
+
+.tabcontrolclass {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border-bottom: 2rpx solid #e2a140;
+}

@@ -1,12 +1,12 @@
 <!--pages/order/order.wxml-->
 <view class="container">
   <form class="info-form" catchsubmit="formSubmit">
-  <view>商家商品</view>
-  <goodsList id="store" />
-  <view>自选商品</view>
-    <goodsList id="self" />
+    <view>商家商品</view>
+    <goodsList id="store" goodsType="store" />
+    <view>自选商品</view>
+    <goodsList id="self" goodsType="self" />
     <view class="btn-area">
-        <button class="update-btn" formType="submit">派单</button>
+        <button class="update-btn" formType="submit">确定</button>
       </view>
   </form>
 </view>

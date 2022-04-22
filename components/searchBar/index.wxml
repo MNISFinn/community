@@ -1,0 +1,9 @@
+<!--components/searchBar/index.wxml-->
+<view class="search">
+    <view class="search_i">
+        <image class="search-icon" src="https://jxtf-store.oss-cn-hangzhou.aliyuncs.com/car-image/wxapp/seach.png"></image>
+    </view>
+    <view class="search_ipt">
+        <input type="text" class="content" confirm-type="search" placeholder="找想买" bindinput="editName" />
+    </view>
+</view>

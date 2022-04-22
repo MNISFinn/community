@@ -1,0 +1,47 @@
+/* pages/orderDetail/orderDetail.wxss */
+.container {
+  padding: 0;
+  background-image:
+  -webkit-linear-gradient(0deg, #eeeeee 1%,transparent 3%,transparent),
+  -webkit-linear-gradient(90deg,#eeeeee 1%,transparent 3%,transparent);
+  background-image:
+  -moz-linear-gradient(0deg,#eeeeee 1%,transparent 3%,transparent),
+  -moz-linear-gradient(90deg,#eeeeee 1%,transparent 3%,transparent);
+  background-image:
+  -o-linear-gradient(0deg,#eeeeee 1%,transparent 3%,transparent),
+  -o-linear-gradient(90deg,#eeeeee 1%,transparent 3%,transparent);
+  background-image:
+  linear-gradient(0deg,#eeeeee 1%,transparent 3%,transparent),
+  linear-gradient(90deg,#eeeeee 1%,transparent 3%,transparent);
+  background-size:20px 20px;
+  background-attachment:fixed
+}
+
+.address-area {
+  border: 1px solid #e2a140;
+  width: 90%;
+  margin: 10rpx auto;
+  padding: 10rpx;
+  border-radius:100rpx/180rpx;
+}
+
+.detail-area {
+  width: 95%;
+  border: 1px solid #e2a140;
+  margin: 5rpx 10rpx;
+}
+
+.time-area {
+  width: 100%;
+  padding-left: 20rpx;
+  margin: 20rpx auto;
+  text-align: left;
+}
+
+.order-btn {
+  background: none;
+  color: #e2a140;
+  border: 1px solid #e2a140;
+  margin: auto 0;
+  border-radius:25px;
+}

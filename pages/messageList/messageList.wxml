@@ -1,0 +1,15 @@
+<!--pages/messageList/messageList.wxml-->
+<view>
+  <view wx:for="{{list}}" wx:key="idx">
+    <view class="list-item" bindtap="toChat" data-user_id="{{item.user_id}}">
+      <view class="left-item"><image class="avatar" src="{{item.avatar}}"></image></view>
+      <view class="right-item">
+        <view>{{item.user_name}}</view>
+        <view class="msg-area">
+          <view class="msg">{{item.newest_msg}}</view>
+          <view class="time">{{item.time}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

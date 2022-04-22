@@ -14,7 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -76,11 +76,11 @@ Page({
         const tempFilePaths = res.tempFilePaths
         console.log(tempFilePaths)
         wx.uploadFile({ //上传到服务器
-          url: 'https://api.fridaysoon.asia/upload_file',
+          url: 'https://api.fridaysoon.asia:8090/file/upload',
           filePath: tempFilePaths[0],//文件地址
           name: 'file',//文件name值
           formData: {
-            'bucket': 'order-goods'
+            'bucket_name': 'order-goods'
           },
           success: function (res) {
             console.log(res)

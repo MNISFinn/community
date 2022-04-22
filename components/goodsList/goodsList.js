@@ -11,6 +11,10 @@ Component({
     goodsList: {
       type: Array,
       value: []
+    },
+    goodsType: {
+      type: String,
+      value: ''
     }
   },
   export() {
@@ -163,7 +167,8 @@ Component({
       let item = {
         goods_name: '',
         goods_quantity: '',
-        goods_detail: ''
+        goods_detail: '',
+        goods_type: this.properties.goodsType == 'store' ? 1 : 2
       }
       let goods_list = this.data.goodsList
       goods_list.push(item)

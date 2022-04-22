@@ -1,5 +1,10 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "banner": "../../components/banner/index",
+    "searchBar": "../../components/searchBar/index",
+    "goodsItem": "../../components/goodsItem/goodsItem",
+    "cart": "../../components/cart/cart"
+  },
   "navigationBarTitleText": "小区派送",
   "enablePullDownRefresh": true
 }

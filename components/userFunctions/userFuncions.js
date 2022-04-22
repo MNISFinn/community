@@ -34,6 +34,7 @@ Component({
       var myEventOption = {} // 触发事件的选项
       this.triggerEvent('sendOrder', myEventDetail, myEventOption)
       this.triggerEvent('search', myEventDetail, myEventOption)
+      this.triggerEvent('orderList', myEventDetail, myEventOption)
       this.triggerEvent('register', myEventDetail, myEventOption)
     },
   },

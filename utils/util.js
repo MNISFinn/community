@@ -60,12 +60,13 @@ const queryLogin = () => {
         method: 'POST',
         data: {
           code,
-          name: user_info['nickName'],
+          // name: user_info['nickName'],
+          wechat_name: user_info['nickName'],
           avatar: user_info['avatarUrl'],
         }
       }).then(res => {
         wx.setStorageSync('token', res.data.token) // 存储token
-        wx.setStorageSync('expireTime', new Date().getTime() + res.data.expires_in * 1000)
+        wx.setStorageSync('expireTime', res.data.expires_in)
       }).catch(err => {
         console.log(err)
         msg.toast('登录失败，请重新登录', 'error')
@@ -76,11 +77,11 @@ const queryLogin = () => {
 const uploadFile = (path, bucket) => {
   return new Promise((resolve, reject) => {
     wx.uploadFile({ //上传到服务器
-    url: 'https://api.fridaysoon.asia/upload_file',
+    url: 'https://api.fridaysoon.asia:8090/file/upload',
     filePath: path,//文件地址
     name: 'file',//文件name值
     formData: {
-      'bucket': bucket
+      'bucket_name': bucket
     },
     success: res => {
       if (res.statusCode == 200) {
@@ -94,9 +95,10 @@ const uploadFile = (path, bucket) => {
       }
     },
     fail: err => {
-      let err_result = JSON.parse(err)
-      msg.toast(err_result.errMsg, 'error')
-      reject(err_result.errMsg)
+      console.log(err)
+      // let err_result = JSON.parse(err)
+      msg.toast(err.errMsg, 'error')
+      reject(err.errMsg)
     }
   })
   })

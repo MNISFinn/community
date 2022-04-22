@@ -1,0 +1,40 @@
+<!--components/goodsItem/goodsItem.wxml-->
+<view class="item-container">
+  <view class="item-box" wx:for="{{goodsList}}" wx:key="idx" wx:for-item="goodsItem">
+    <view class="item">
+      <image src="{{goodsItem.goods_image}}" class="goods-pic"></image>
+    </view>
+    <view class="item">
+      {{goodsItem.goods_name}}
+    </view>
+    <view class="item">
+      {{goodsItem.goods_price}}
+    </view>
+    <view class="count-area">
+      <view 
+      bindtap="decreaseQuantity" 
+      data-id="{{goodsItem.goods_id}}" 
+      data-count="{{cartList[goodsItem.goods_id] ? cartList[goodsItem.goods_id] : 0}}"
+      >
+        <image src="../../assets/sub.png" class="counter-icon" />
+      </view>
+      <view>
+        <input 
+        type="number" 
+        value="{{cartList[goodsItem.goods_id] ? cartList[goodsItem.goods_id] : 0}}" 
+        class="counter quantity-{{goodsItem.goods_id}}"
+        />
+      </view>
+      <view 
+      bindtap="increaseQuantity" 
+      data-id="{{goodsItem.goods_id}}" 
+      data-count="{{cartList[goodsItem.goods_id] ? cartList[goodsItem.goods_id] : 0}}"
+      >
+        <image src="../../assets/add.png" class="counter-icon" />
+      </view>
+    </view>
+    <view wx:if="{{goodsItem.store_id}}">
+      <view class="store-name" bindtap="toStore" data-store_id="{{goodsItem.store_id}}">{{goodsItem.store_name}}</view>
+    </view>
+  </view> 
+</view>

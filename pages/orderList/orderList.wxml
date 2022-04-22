@@ -1,0 +1,25 @@
+<!--pages/orderList/orderList.wxml-->
+<view>
+  <tabControl class="tabcontrolclass" 
+             id="TestTabComponent" 
+             bind:sendIndex="getTabIndex" 
+             titles="{{['待支付','已支付','已完成']}}">
+  </tabControl>
+  <swiper class="TestTabBody" 
+        current="{{swipercurrent}}"
+        bindchange="swipercurrentchange"
+        circular="{{true}}">
+    <swiper-item class="TestTabBody-item" item-id="">
+    <!-- swiper-item -->
+      <orderItem orderStatus="1" />
+    </swiper-item>
+    <swiper-item class="TestTabBody-item" item-id="">
+    <!-- swiper-item -->
+      <orderItem orderStatus="2" />
+    </swiper-item>
+    <swiper-item class="TestTabBody-item" item-id="">
+    <!-- swiper-item -->
+      <orderItem orderStatus="3" />
+    </swiper-item>
+  </swiper>
+</view>

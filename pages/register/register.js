@@ -134,7 +134,7 @@ Page({
     let info = e.detail.value
     console.log(info)
     request({
-      url: 'deliver_register',
+      url: 'deliver/register',
       method: 'POST',
       data: {
         user_id: this.data.user_id,

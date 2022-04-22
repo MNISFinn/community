@@ -43,7 +43,7 @@ export default async function request (options) {
       data: options.data || {},
       success: res => {
         if (res.statusCode == 200) {
-          if (res.data.code === 0) {
+          if (res.data.code === 200) {
             resolve(res.data)
           } else {
             msg.alert(res.data.msg)

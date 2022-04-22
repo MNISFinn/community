@@ -1,0 +1,20 @@
+<!--components/orderGoodsList/index.wxml-->
+<view class="store-type">{{storeType}}</view>
+<view class="goods-list"  wx:if="{{goodsList}}" wx:for="{{goodsList}}" wx:key="key">
+  <view class="store-name" wx:if="{{item.store_name != ''}}">{{item.store_name}}</view>
+  <view class="goods" wx:for="{{item.goods_list}}" wx:for-item="goods_item" wx:key="goodsKey">
+    <view class="goods-item">
+      <block wx:for="{{goods_item.goods_image}}" wx:for-item="imageItem" wx:key="imageKey">
+        <image src="{{imageItem}}" style="width: 50rpx;height: 50rpx;" />
+      </block>
+    </view>
+    <view class="goods-item">
+      <view>{{goods_item.goods_name}}</view>
+      <view>{{goods_item.goods_price}}</view>
+    </view>
+    <view class="goods-item">
+      <view>x {{goods_item.goods_quantity}}</view>
+    </view>
+  </view>
+  
+</view>

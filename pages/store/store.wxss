@@ -1,0 +1,14 @@
+/* pages/store/store.wxss */
+.TestTabBody {
+  height: 1000rpx;
+}
+
+.TestTabBody-item {
+  height: 400rpx;
+  margin-top: 10rpx;
+  /* color: #e2a140; */
+}
+
+.tabcontrolclass {
+  border-bottom: 2rpx solid #e2a140;
+}

@@ -69,6 +69,8 @@ Page({
     const selfGoodsList = this.selectComponent('#self') // 自选商品
     console.log(storeGoodsList)
     console.log(selfGoodsList)
+    let store_goods = encodeURIComponent(JSON.stringify(storeGoodsList));
+    let self_goods = encodeURIComponent(JSON.stringify(selfGoodsList));
 
     // 请求下单接口
     wx.showLoading({
@@ -76,7 +78,7 @@ Page({
       mask: true,
       success: function() {
         wx.navigateTo({
-          url: '../orderDelivering/orderDelivering',
+          url: '../orderDetail/orderDetail?store_goods=' + store_goods + '&self_goods=' + self_goods,
         })
       }
     })

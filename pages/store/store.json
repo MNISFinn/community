@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "banner": "../../components/banner/index",
+    "goodsItem": "../../components/goodsItem/goodsItem",
+    "cart": "../../components/cart/cart",
+    "tabControl": "../../components/tabControl/index"
+  }
+}

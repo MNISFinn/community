@@ -1,0 +1,41 @@
+/* pages/messageList/messageList.wxss */
+.list-item {
+  border-radius:10px;
+  background-color: white;
+  box-shadow: 2px 2px 1px #eeeeee;
+  margin: 50rpx 10rpx 50rpx 10rpx;
+  padding: 20rpx 40rpx 20rpx 40rpx;
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+}
+
+.left-item {
+  margin: 15rpx 10rpx;
+}
+
+.avatar {
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.right-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.msg-area {
+  display: flex;
+  justify-content: space-between;
+  width: 565rpx;
+}
+
+.msg {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.time {
+  color: #999999;
+}

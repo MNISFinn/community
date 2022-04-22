@@ -187,7 +187,7 @@ Component({
       let community = this.data.community_info
       console.log(address, community)
       request({
-        url: 'add_address',
+        url: 'address/add',
         method: 'POST',
         data: {
           address,

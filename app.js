@@ -16,6 +16,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    selectedIndex: 0
+    selectedIndex: 0,
   }
 })

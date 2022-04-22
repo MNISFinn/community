@@ -1,0 +1,15 @@
+/* components/orderGoodsList/index.wxss */
+.store-type, .store-name {
+  border-bottom: 1px solid #eeeeee;
+}
+
+.goods-list {
+  margin: 10rpx auto;
+  border: 1px solid #cccccc;
+  width: 95%;
+}
+
+.goods {
+  display: flex;
+  justify-content: space-between;
+}

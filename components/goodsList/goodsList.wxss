@@ -44,3 +44,16 @@
   width: 100rpx;
   height: 100rpx;
 }
+
+.add-btn {
+  display: block;
+  margin: 0 auto;
+  width: 200rpx;
+  height: 120rpx;
+  background: none;
+}
+
+.add-img {
+  width: 80rpx;
+  height: 80rpx;
+}

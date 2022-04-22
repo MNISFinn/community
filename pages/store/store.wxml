@@ -1,0 +1,28 @@
+<!--pages/store/store.wxml-->
+<view>
+<!-- 轮播图 -->
+  <banner />
+  <!-- 购物车 -->
+  <cart />
+  <!-- 商品商家滑动选项 -->
+  <tabControl class="tabcontrolclass" 
+             id="TestTabComponent" 
+             bind:sendIndex="getTabIndex" 
+             titles="{{['商品','商家']}}">
+  </tabControl>
+  <swiper class="TestTabBody" 
+        current="{{swipercurrent}}"
+        bindchange="swipercurrentchange"
+        circular="{{true}}">
+    <swiper-item class="TestTabBody-item" item-id="">
+    <!-- swiper-item -->
+        <view>
+          <goodsItem goodsList="{{goodsList}}" />
+        </view>
+    </swiper-item>
+    <swiper-item class="TestTabBody-item" item-id="">
+    <!-- swiper-item -->
+        <view>{{store.store_desc}}</view>
+    </swiper-item>
+  </swiper>
+</view>

@@ -26,11 +26,15 @@
           <image src="{{goods_img_item}}" class="goods-img" />
         </view>
       <view class="item-value">
-        <button size="mini" id="goods_img-{{index}}" bindtap="uploadGoods">+</button>
+        <button size="mini" id="goods_img-{{index}}" bindtap="uploadGoods" class="add-btn" style="height: 80rpx;">
+          <image src="../../assets/add.png" class="add-img" />
+        </button>
       </view>
     </view>
 　　</view>
   </view>
   <view class="del" bindtap="removeItem" data-index="{{index}}">删除</view>
 </view>
-<button size="mini" bindtap="addItem">添加商品</button>
+<button bindtap="addItem" class="add-btn">
+  <image src="../../assets/add.png" class="add-img" />
+</button>

@@ -41,20 +41,21 @@ Page({
     let token = wx.getStorageSync('token')
     if (token) {
       request({
-      url: 'user_info',
-      method: 'POST',
+      // url: 'user_info',
+      url: 'auth/info',
+      method: 'GET',
     }).then(res => {
       console.log(res)
       let user = {
-        avatarUrl: res.data.avatar,
-        nickName: res.data.user_name
+        avatarUrl: res.data.user.avatar,
+        nickName: res.data.user.user_name
       }
       this.setData({
-        userData: res.data,
+        userData: res.data.user,
         userInfo: user,
         hasUserInfo: true
       })
-      app.globalData.userInfo = res.data  // 存储全局变量
+      app.globalData.userInfo = res.data.user  // 存储全局变量
     }).catch(err => {
       console.log(err)
     })
@@ -86,13 +87,16 @@ Page({
       // results是一个长度为2的数组，放置着p1、p2的resolve
       let code = results[0].code
       let user_info = results[1].userInfo
+      console.log(user_info)
       // 登录
       request({
-        url: 'user_login',
+        // url: 'user_login',
+        url: 'auth/login',
         method: 'POST',
         data: {
           code,
-          name: user_info['nickName'],
+          // name: user_info['nickName'],
+          wechat_name: user_info['nickName'],
           avatar: user_info['avatarUrl'],
         }
       }).then(res => {
@@ -107,7 +111,7 @@ Page({
         })
         app.globalData.userInfo = res.data.user_info  // 存储全局变量
         wx.setStorageSync('token', res.data.token) // 存储token
-        wx.setStorageSync('expireTime', new Date().getTime() + res.data.expires_in * 1000)
+        wx.setStorageSync('expireTime', res.data.expires_in)
       }).catch(err => {
         console.log(err)
       })
@@ -148,9 +152,20 @@ Page({
       url: '../communityList/communityList',
     })
   },
+  onOrderList(e) {
+    wx.navigateTo({
+      url: '../orderList/orderList',
+    })
+  },
   onRegister(e) {
     wx.navigateTo({
       url: '../register/register',
     })
   },
+  onMsgList(e) {
+    let user_id = app.globalData.userInfo.user_id
+    wx.navigateTo({
+      url: '../messageList/messageList?user_id='+user_id,
+    })
+  }
 })

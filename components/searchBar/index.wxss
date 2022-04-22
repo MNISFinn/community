@@ -1,0 +1,37 @@
+/* components/searchBar/index.wxss */
+.search {
+  width: 95%;
+  margin: 20rpx auto;
+  display: flex;
+  background: #fff;
+  border: 1px solid #ddd;
+  height: 70rpx;
+  border-radius: 35rpx;
+}
+
+.content {
+  height: 70rpx;
+  background: none;
+  outline: none;
+  width: 100%;
+}
+
+.search_i {
+  display: flex;
+  align-items: center;
+  height: 70rpx;
+}
+
+.search_ipt {
+  display: flex;
+  align-items: center;
+  padding-left: 60rpx;
+  width: 100%;
+}
+
+.search-icon {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  padding-left: 10rpx;
+}

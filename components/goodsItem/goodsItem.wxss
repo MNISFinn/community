@@ -1,0 +1,48 @@
+/* components/goodsItem/goodsItem.wxss */
+.item-container {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+}
+
+.item-box {
+  width: 350rpx;
+  height: 545rpx;
+  margin: 10rpx;
+  border: 1px solid #eeeeee;
+  border-radius: 20rpx;
+  border-color: #e2a140;
+}
+
+.goods-pic {
+  margin-top: 5rpx;
+  width: 320rpx;
+  height: 320rpx;
+  border-radius: 20rpx;
+}
+
+.item {
+  text-align: center;
+}
+
+.count-area {
+  display: flex;
+  flex-direction: row;
+  margin: 0 65rpx;
+}
+
+.counter {
+  text-align: center;
+}
+
+.counter-icon {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.store-name {
+  text-align: right;
+  color: #d6d6d6;
+  font-size: 26rpx;
+  margin-right: 20rpx;
+}
